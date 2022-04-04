@@ -27,7 +27,8 @@
         <div class="info">
           
 
-
+        <button class="btn btn-primary" style="margin-left:9px;">Print</button>
+        <br><br>
 
         <div class="row justify-content-evenly">
         <div class="col-3">

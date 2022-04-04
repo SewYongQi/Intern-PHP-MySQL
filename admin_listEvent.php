@@ -25,7 +25,9 @@
         <div class="header"></div>  
         <div class="info">
           
-    
+        <button class="btn btn-info" style="margin-left:9px;">Create</button>
+        <br><br>
+
             <!-- Table Panel -->
             <div class="col-md-10 mb-3">
                 <div class="">

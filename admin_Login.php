@@ -19,7 +19,7 @@
     <!-- Custom styles for this template -->
     <link href="css/style1.css" rel="stylesheet" />
 
- 
+
 </head>
 <div class="hero_area">
     <!-- header section strats -->
