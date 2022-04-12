@@ -19,11 +19,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <title>Student Profile</title>
+   
   </head>
   <body>
 
@@ -40,46 +43,8 @@
         }
     ?>
 
-<div class="w">
-<div class="main_content">
-        <div class="header"></div>  
-        <div class="info">
-        <form class="col-10">
-              <div class="form-group">
-                  <b><label for="SN">Student Name: </label></b>
-                  <input class="form-control" id="SN" name="SN" placeholder="Enter Your Name" type="text" required minlength="3" maxlength="11">
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <b><label for="ID">Student ID: </label></b>
-                  <input type="tel" class="form-control" id="ID" name="ID" placeholder="Enter Your Student ID" required>
-                </div>
-                <div class="form-group">
-                  <b><label for="IC">IC Number: </label></b>
-                  <input type="tel" class="form-control" id="IC" name="IC" placeholder="ENter Your IC Number" required>
-                </div>
-              </div>
-              <div class="form-group">
-                  <b><label for="email">Email:</label></b>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-              </div>
-              
-              <div class="form-group">
-                <b><label for="phone">Phone No:</label></b>
-                
-                  <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number" required pattern="[1-9]{2}[0-9]{7}" maxlength="20">
-                
-              </div>
-              <div class="form-group">
-                  <b><label for="address">Address:</label></b>
-                  <input type="text" class="form-control" id="address" name="address" placeholder="Enter Your Address" required>
-              </div>
-              
-              <button type="" class="btn btn-success">EDIT</button>
-            </form>
-      </div>
-    </div>
-</div>
+<?php $page = isset($_GET['page']) ? $_GET['page'] :'home'; ?>
+    <?php include $page.'.php' ?>
     
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -91,12 +56,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
   </body>
 </html>
 
 <?php
     }
-    else{
-        header("location: /Project/login.php");
-    }
+   
 ?>

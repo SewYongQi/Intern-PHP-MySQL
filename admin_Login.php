@@ -38,10 +38,10 @@
             <div class="tabs-content">
                 <div id="signup-tab-content">
 
-                <div class="text-center">Student Login</div><br>
+                <div class="text-center"><h5 class="text-dark fw-bold">Student Login</h5></div><br>
                 <form class="login-form"  method="post" >
-                        <input type="text" class="input" id="email" autocomplete="off" placeholder="Email" name="email">
-                        <input type="password" class="input" id="pass" autocomplete="off" placeholder="Password" name="pass">
+                        <input type="text" class="input" id="loginemail" autocomplete="off" placeholder="Email" name="loginemail">
+                        <input type="password" class="input" id="loginpassword" autocomplete="off" placeholder="Password" name="loginpassword">
 
                         <button type="submit" class="button" value="Login" name="but1"><a href="index.php" class="text-light">Login</a></button>
                     </form>
@@ -52,10 +52,10 @@
                 <!--.signup-tab-content-->
                 
                 <div id="login-tab-content"  class="active">
-                <div class="text-center">Welcome Back, Admin!</div><br>
+                <div class="text-center"><h5 class="text-dark fw-bold">Welcome Back, Admin!</h5></div><br>
                 <form class="login-form"  method="post" >
-                        <input type="text" class="input" id="email" autocomplete="off" placeholder="Email" name="email">
-                        <input type="password" class="input" id="pass" autocomplete="off" placeholder="Password" name="pass">
+                        <input type="text" class="input" id="loginemail" autocomplete="off" placeholder="Email" name="loginemail">
+                        <input type="password" class="input" id="loginpassword" autocomplete="off" placeholder="Password" name="loginpassword">
 
                         <button type="submit" class="button" value="Login" name="but1"><a href="admin_index.php" class="text-light">Login</a></button>
                     </form>
