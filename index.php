@@ -26,7 +26,17 @@
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <title>Student Profile</title>
-   
+    <style>
+    table, td {
+      border-collapse: collapse;
+    }
+    td {
+      padding-top: 5px;
+      padding-bottom: 20px;
+      padding-left: 10px;
+      padding-right: 20px;
+    }
+    </style>
   </head>
   <body>
 
@@ -35,16 +45,11 @@
         require 'includes/_dbconnect.php';
         require 'includes/nav.php';
         
-        if(isset($_GET['loginsuccess']) && $_GET['loginsuccess']=="true"){
-            echo '<div class="alert alert-success alert-dismissible fade show" role="alert" style="width:100%">
-                    <strong>Success!</strong> You are logged in
-                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span></button>
-                  </div>';
-        }
     ?>
 
 <?php $page = isset($_GET['page']) ? $_GET['page'] :'home'; ?>
     <?php include $page.'.php' ?>
+    
     
     <!-- Optional JavaScript; choose one of the two! -->
 

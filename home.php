@@ -3,7 +3,16 @@
         <div class="header"></div>  
         <div class="info">
 
+<?php
 
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
+  $loggedin= true;
+  $userId = $_SESSION['userId'];
+  $username = $_SESSION['username'];
+}
+if($loggedin){
+    
+?>
         <div class="container">
         <?php 
             $sql = "SELECT * FROM users WHERE id='$userId'"; 
@@ -22,25 +31,32 @@
                     <div class="col-10"> 
                     <button class="btn btn-danger float-right" data-toggle="modal" data-target="#editUser"> Edit User</button>
                     <table><br><br>
+                    <tbody>
                         <tr>
-                            <td><h5 class="text-dark fw-bold">Student Name : </h5></td><td><h5> <?php echo $username ?></h5></td>
+                            <td><h5 class="text-dark fw-bold">Student Name : </h5></td>
+                            <td><h5> <?php echo $username ?></h5></td>
                         </tr>
                         <tr>
-                            <td><br><h5 class="text-dark fw-bold">Student ID : </h5></td><td><br><h5> <?php echo $userid ?></h5></td>
+                            <td><h5 class="text-dark fw-bold">Student ID : </h5></td>
+                            <td><h5> <?php echo $userid ?></h5></td>
                         </tr>
                         <tr>
-                            <td><br><h5 class="text-dark fw-bold">IC Number : </h5></td><td><br><h5> <?php echo $ic ?></h5></td>
+                            <td><h5 class="text-dark fw-bold">IC Number : </h5></td>
+                            <td><h5> <?php echo $ic ?></h5></td>
                         </tr>
                         <tr>
-                            <td><br><h5 class="text-dark fw-bold">Email : </h5></td><td><br><h5> <?php echo $email ?></h5></td>
+                            <td><h5 class="text-dark fw-bold">Email : </h5></td>
+                            <td><h5> <?php echo $email ?></h5></td>
                         </tr>
                         <tr>
-                            <td><br><h5 class="text-dark fw-bold">Address : </h5></td><td><br><h5> <?php echo $address ?></h5></td>
+                            <td><h5 class="text-dark fw-bold">Address : </h5></td>
+                            <td><h5> <?php echo $address ?></h5></td>
                         </tr>
                         <tr>
-                            <td><br><h5 class="text-dark fw-bold">Phone No. : </h5></td><td><br><h5>+60  <?php echo $phone ?></h5></td>
+                            <td><h5 class="text-dark fw-bold">Phone No. : </h5></td>
+                            <td><h5>+60  <?php echo $phone ?></h5></td>
                         </tr>
-                        
+                    </tbody>    
                     </table></div>
                     
                
@@ -100,6 +116,9 @@
         </div>
     </div>
 
+<?php
+    }     
+?>
    
 </div></div>
 

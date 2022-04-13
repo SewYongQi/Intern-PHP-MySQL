@@ -26,6 +26,18 @@
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <title>Profile</title>
+    
+    <style>
+    table, td {
+      border-collapse: collapse;
+    }
+    td {
+      padding-top: 5px;
+      padding-bottom: 20px;
+      padding-left: 10px;
+      padding-right: 20px;
+    }
+    </style>
 
   </head>
   <body>
@@ -68,22 +80,28 @@
                     <button class="btn btn-warning float-right" data-toggle="modal" data-target="#editUser"> Edit User</button>
                     <table><br><br>
                         <tr>
-                            <td><h5 class="text-dark fw-bold">Name : </h5></td><td><h5> <?php echo $username ?></h5></td>
+                            <td><h5 class="text-dark fw-bold">Name : </h5></td>
+                            <td><h5> <?php echo $username ?></h5></td>
                         </tr>
                         <tr>
-                            <td><br><h5 class="text-dark fw-bold">Admin ID : </h5></td><td><br><h5> <?php echo $userid ?></h5></td>
+                            <td><h5 class="text-dark fw-bold">Admin ID : </h5></td>
+                            <td><h5> <?php echo $userid ?></h5></td>
                         </tr>
                         <tr>
-                            <td><br><h5 class="text-dark fw-bold">IC Number : </h5></td><td><br><h5> <?php echo $ic ?></h5></td>
+                            <td><h5 class="text-dark fw-bold">IC Number : </h5></td>
+                            <td><h5> <?php echo $ic ?></h5></td>
                         </tr>
                         <tr>
-                            <td><br><h5 class="text-dark fw-bold">Email : </h5></td><td><br><h5> <?php echo $email ?></h5></td>
+                            <td><h5 class="text-dark fw-bold">Email : </h5></td>
+                            <td><h5> <?php echo $email ?></h5></td>
                         </tr>
                         <tr>
-                            <td><br><h5 class="text-dark fw-bold">Address : </h5></td><td><br><h5> <?php echo $address ?></h5></td>
+                            <td><h5 class="text-dark fw-bold">Address : </h5></td>
+                            <td><h5> <?php echo $address ?></h5></td>
                         </tr>
                         <tr>
-                            <td><br><h5 class="text-dark fw-bold">Phone No. : </h5></td><td><br><h5>+60  <?php echo $phone ?></h5></td>
+                            <td><h5 class="text-dark fw-bold">Phone No. : </h5></td>
+                            <td><h5>+60  <?php echo $phone ?></h5></td>
                         </tr>
                         
                     </table></div>

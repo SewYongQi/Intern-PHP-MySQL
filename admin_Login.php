@@ -39,11 +39,11 @@
                 <div id="signup-tab-content">
 
                 <div class="text-center"><h5 class="text-dark fw-bold">Student Login</h5></div><br>
-                <form class="login-form"  method="post" >
-                        <input type="text" class="input" id="loginemail" autocomplete="off" placeholder="Email" name="loginemail">
+                <form class="login-form" action="includes/_handleLogin.php" method="post" >
+                        <input type="email" class="input" id="loginemail" autocomplete="off" placeholder="Email" name="loginemail">
                         <input type="password" class="input" id="loginpassword" autocomplete="off" placeholder="Password" name="loginpassword">
 
-                        <button type="submit" class="button" value="Login" name="but1"><a href="index.php" class="text-light">Login</a></button>
+                        <button type="submit" class="button">Login</button>
                     </form>
                     <!--.login-form-->
                     
@@ -53,11 +53,11 @@
                 
                 <div id="login-tab-content"  class="active">
                 <div class="text-center"><h5 class="text-dark fw-bold">Welcome Back, Admin!</h5></div><br>
-                <form class="login-form"  method="post" >
-                        <input type="text" class="input" id="loginemail" autocomplete="off" placeholder="Email" name="loginemail">
-                        <input type="password" class="input" id="loginpassword" autocomplete="off" placeholder="Password" name="loginpassword">
+                <form class="login-form" action="includes/admin_handleLogin.php" method="post" >
+                        <input type="email" class="input" id="email" autocomplete="off" placeholder="Email" name="email">
+                        <input type="password" class="input" id="password" autocomplete="off" placeholder="Password" name="password">
 
-                        <button type="submit" class="button" value="Login" name="but1"><a href="admin_index.php" class="text-light">Login</a></button>
+                        <button type="submit" class="button" >Login</button>
                     </form>
                     
                     <!--.login-form-->
@@ -73,6 +73,14 @@
 
 </div><!-- tab-content -->
 
+<?php
+        if(isset($_GET['loginsuccess']) && $_GET['loginsuccess']=="false"){
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Warning!</strong> Invalid Credentials
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span></button>
+                </div>';
+        }
+    ?>
 
 <!-- jQery -->
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>

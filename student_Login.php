@@ -40,10 +40,10 @@
 
                 <div class="text-center"><h5 class="text-dark fw-bold">Student Login</h5></div><br>
                 <form class="login-form" action="includes/_handleLogin.php" method="post" >
-                        <input type="text" class="input" id="loginemail" autocomplete="off" placeholder="Email" name="loginemail">
+                        <input type="email" class="input" id="loginemail" autocomplete="off" placeholder="Email" name="loginemail">
                         <input type="password" class="input" id="loginpassword" autocomplete="off" placeholder="Password" name="loginpassword" data-toggle="password">
 
-                        <button type="submit" class="button" value="Login" name="but1">Login</button>
+                        <button type="submit" class="button">Login</button>
                     </form>
                     <!--.login-form-->
                     
@@ -53,11 +53,11 @@
                 
                 <div id="login-tab-content">
                 <div class="text-center"><h5 class="text-dark fw-bold">Welcome Back, Admin!</h5></div><br>
-                <form class="login-form"  method="post" >
-                        <input type="text" class="input" id="loginemail" autocomplete="off" placeholder="Email" name="loginemail">
-                        <input type="password" class="input" id="loginpassword" autocomplete="off" placeholder="Password" name="loginpassword">
+                <form class="login-form" action="includes/admin_handleLogin.php" method="post" >
+                        <input type="email" class="input" id="email" autocomplete="off" placeholder="Email" name="email">
+                        <input type="password" class="input" id="password" autocomplete="off" placeholder="Password" name="password">
 
-                        <button type="submit" class="button" value="Login" name="but1"><a href="admin_index.php" class="text-light">Login</a></button>
+                        <button type="submit" class="button">Login</button>
                     </form>
                     
                     <!--.login-form-->

@@ -19,11 +19,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             exit();
         } 
         else{
-            header("location: /Project/index.php?loginsuccess=false");
+            header("location: /Project/student_Login.php?loginsuccess=false");
         }
     } 
     else{
-        header("location: /Project/index.php?loginsuccess=false");
+        header("location: /Project/student_Login.php?loginsuccess=false");
     }
 }    
 ?>
