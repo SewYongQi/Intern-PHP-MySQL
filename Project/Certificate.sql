@@ -53,14 +53,17 @@ INSERT INTO `Students` (`StudentId`, `StudentName`, `StudentPwd`, `StudentEmail`
 (1, 'Student', 'Student1',  'Student@gmail.com','000000-00-0000', 01);
 
 INSERT INTO `Admins` (`AdminId`, `AdminName`, `AdminPwd`, `SignatureId`) VALUES
-(1, 'Admin', 'Admin', 02);
+(101, 'Admin', 'Admin', 02);
 
-INSERT INTO `Events` (`EventId`, `EventName`, `EventDatetime`, 'venue', `EventDetail`) VALUES
-(1, 'BASKET BALL MADNESS', '2022-08-24 8:00:00', 'Lot 5, Seksyen 10, 43000 Kajang, Selangor', 'MAN VS MAN');
-(2, 'SMASH IT UP! BADMINTON TOURNAMENT', '2022-04-21 7:00:00', 'New Era University College', 'Category: Single [$150] Double [$200] Award: -RM500 -Winner & Runner Trophy Medal');
-(3, 'CYBER SECURITY', '2022-09-30 13:00:00', 'New Era University College', 'After participating you will get a "SMALL GIFT"!!');
-(4, 'STUDENT COUNCIL ELECTIONS', '2022-03-22 09:00:00', 'Lincoln Hall, Granite Hills School Bella Glade, Florida', 'Make Your Voice Heard. Use Your Vote.');
-(5, 'GRAPHIC DESIGNER', '2022-07-05', 'New Era University College', 'Services: Logo Design, Brochure Design, Website Design, App Design.');
+INSERT INTO `Events` (`EventId`, `EventName`, `EventDatetime`, `venue`, `EventDetail`) VALUES
+(201, 'BASKET BALL MADNESS', '2022-08-24 8:00:00', 'Lot 5, Seksyen 10, 43000 Kajang, Selangor', 'MAN VS MAN'),
+(202, 'SMASH IT UP! BADMINTON TOURNAMENT', '2022-04-21 7:00:00', 'New Era University College', 'Category: Single [$150] Double [$200] Award: -RM500 -Winner & Runner Trophy Medal'),
+(203, 'CYBER SECURITY', '2022-09-30 13:00:00', 'New Era University College', 'After participating you will get a "SMALL GIFT"!!'),
+(204, 'STUDENT COUNCIL ELECTIONS', '2022-03-22 09:00:00', 'Lincoln Hall, Granite Hills School Bella Glade, Florida', 'Make Your Voice Heard. Use Your Vote.'),
+(205, 'GRAPHIC DESIGNER', '2022-07-05', 'New Era University College', 'Services: Logo Design, Brochure Design, Website Design, App Design.');
 
-INSERT INTO `Certificates` (`CertificateId`, `CertificateName`, `EventId`, 'paragraph', `CertificateDetail`) VALUES
-(1, 'xxxxx', 1, 'xxxxxxxxxx', 'xxxxxxxxxxxxx');
+INSERT INTO `Attendents` (`AttendentId`, `EventId`, `EventName`) VALUES
+(301, 201, 'BASKET BALL MADNESS');
+
+INSERT INTO `Certificates` (`CertificateId`, `CertificateName`, `EventId`, `paragraph`, `CertificateDetail`) VALUES
+(501, 'xxxxx', 201, 'xxxxxxxxxx', 'xxxxxxxxxxxxx');
