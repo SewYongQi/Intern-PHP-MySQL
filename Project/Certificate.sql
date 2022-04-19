@@ -1,75 +1,66 @@
-CREATE TABLE `students` (
+CREATE TABLE `Students` (
     
-    `studentId` int(12) NOT NULL,
-    `studentName` varchar(255) NOT NULL,
-    `studentPwd` varchar(100) NOT NULL,
-    `studentEmail` varchar(500) NOT NULL,
-    `studentIC` varchar(20) NOT NULL,
-    `signatureId` int(12) NOT NULL,
-    primary key(studentId)
-    FOREIGN KEY (signatureId) REFERENCES signatures(signatureId)
+    `StudentId` int(12) NOT NULL,
+    `StudentName` varchar(255) NOT NULL,
+    `StudentPwd` varchar(100) NOT NULL,
+    `StudentEmail` varchar(500) NOT NULL,
+    `StudentIC` varchar(20) NOT NULL,
+    `SignatureId` int(12) NOT NULL
 );
 
-SELECT `studentIC` FORMAT(123456121234,'######-##-####') FROM students;
-
-CREATE Table `admins` (
+CREATE Table `Admins` (
     
-    `adminId` int(12) NOT NULL,
-    `adminName` varchar(255) NOT NULL,
-    `adminPwd` varchar(500) NOT NULL,
-    `signatureId` int(12) NOT NULL,
+    `AdminId` int(12) NOT NULL,
+    `AdminName` varchar(255) NOT NULL,
+    `AdminPwd` varchar(500) NOT NULL,
+    `SignatureId` int(12) NOT NULL
 );
 
-CREATE Table `events` (
+CREATE Table `Events` (
     
-    `eventId` int(12) NOT NULL,
-    `eventName` varchar(255) NOT NULL,
-    `eventDatetime` datetime NOT NULL DEFAULT current_timestamp(),
+    `EventId` int(12) NOT NULL,
+    `EventName` varchar(255) NOT NULL,
+    `EventDatetime` datetime NOT NULL DEFAULT current_timestamp(),
     `venue` varchar(5000) NOT NULL,
-    `eventDetail` varchar(5000) NOT NULL,
-    primary key(eventId)
+    `EventDetail` varchar(5000) NOT NULL
 );
 
-CREATE TABLE `attendents`(
+CREATE TABLE `Attendents`(
     
-    `attendentId` int(12) NOT NULL,
-    `eventId` int(12) NOT NULL,
-    `eventName` varchar(255) NOT NULL,
-    FOREIGN KEY (eventId) REFERENCES signatures(eventId)
-    FOREIGN KEY (eventName) REFERENCES signatures(eventName)
+    `AttendentId` int(12) NOT NULL,
+    `EventId` int(12) NOT NULL,
+    `EventName` varchar(255) NOT NULL
 );
 
-CREATE Table `certificates` (
+CREATE Table `Certificates` (
     
-    `certificateId` int(12) NOT NULL,
-    `certificateName` varchar(255) NOT NULL,
-    `eventId` int(12) NOT NULL,
+    `CertificateId` int(12) NOT NULL,
+    `CertificateName` varchar(255) NOT NULL,
+    `EventId` int(12) NOT NULL,
     `paragraph` varchar(5000) NOT NULL,
-    `certificateDetail` varchar(5000) NOT NULL,
-    FOREIGN KEY (eventId) REFERENCES events(eventId)
+    `CertificateDetail` varchar(5000) NOT NULL
 );
 
-Create Table `signatures` (
+Create Table `Signatures` (
 
-    `signatureId` int(12) NOT NULL,
-    `studentId` int(12) NOT NULL,
-    `signature` binary(1) NOT NULL,
-    `signatureimage` image(16) NOT NULL,
-    primary key(signatureId)
-    FOREIGN KEY (studentId) REFERENCES events(studentId)
+    `SignatureId` int(12) NOT NULL,
+    `StudentId` int(12) NOT NULL,
+    `Signature` binary(1) NOT NULL,
+    `Signatureimage` BLOB(16) NOT NULL
 );
 
-INSERT INTO `students` (`studentId`, `studentName`, `studentPwd`, `studentEmail`, `studentIC`, `signatureId`) VALUES
-(1, 'student', 'student1',  'admin@gmail.com','000000-00-0000', 01);
+INSERT INTO `Students` (`StudentId`, `StudentName`, `StudentPwd`, `StudentEmail`, `StudentIC`, `SignatureId`) VALUES
+(1, 'Student', 'Student1',  'Student@gmail.com','000000-00-0000', 01);
 
-INSERT INTO `admins` (`adminId`, `adminName`, `adminPwd`, `signatureId`) VALUES
-(1, 'admin', 'admin', 02);
+INSERT INTO `Admins` (`AdminId`, `AdminName`, `AdminPwd`, `SignatureId`) VALUES
+(1, 'Admin', 'Admin', 02);
 
-INSERT INTO `events` (`eventId`, `eventName`, `eventDatetime`, 'venue', `eventDetail`) VALUES
-(1, 'xxxxx', '2021-12-17 14:53:46', 'xxxxx', 'xxxxxxxxxxxxx');
+INSERT INTO `Events` (`EventId`, `EventName`, `EventDatetime`, 'venue', `EventDetail`) VALUES
+(1, 'BASKET BALL MADNESS', '2022-08-24 8:00:00', 'Lot 5, Seksyen 10, 43000 Kajang, Selangor', 'MAN VS MAN');
+(2, 'SMASH IT UP! BADMINTON TOURNAMENT', '2022-04-21 7:00:00', 'New Era University College', 'Category: Single [$150] Double [$200] Award: -RM500 -Winner & Runner Trophy Medal');
+(3, 'CYBER SECURITY', '2022-09-30 13:00:00', 'New Era University College', 'After participating you will get a "SMALL GIFT"!!');
+(4, 'STUDENT COUNCIL ELECTIONS', '2022-03-22 09:00:00', 'Lincoln Hall, Granite Hills School Bella Glade, Florida', 'Make Your Voice Heard. Use Your Vote.');
+(5, 'GRAPHIC DESIGNER', '2022-07-05', 'New Era University College', 'Services: Logo Design, Brochure Design, Website Design, App Design.');
 
-INSERT INTO `courses` (`courseId`, `courseName`, `courseDatetime`, 'venue', `courseDetail`) VALUES
-(1, 'xxxxx', '2021-12-18 12:03:26', 'xxxxx', 'xxxxxxxxxxxxx');
-
-INSERT INTO `certificates` (`certificateId`, `certificateName`, `eventId`, 'paragraph', `certificateDetail`) VALUES
+INSERT INTO `Certificates` (`CertificateId`, `CertificateName`, `EventId`, 'paragraph', `CertificateDetail`) VALUES
 (1, 'xxxxx', 1, 'xxxxxxxxxx', 'xxxxxxxxxxxxx');
