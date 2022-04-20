@@ -14,44 +14,7 @@
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <title>Certificate</title>
 
-    <style>
-.container {
-  position: relative;
-  text-align: left;
-  color: black;
-}
-
-.top-left {
-  position: absolute;
-  top: 8px;
-  left: 16px;
-}
-
-.top-right {
-  position: absolute;
-  top: 8px;
-  right: 16px;
-}
-
-.bottom-right {
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-}
-
-.date {
-  position: absolute;
-  bottom: 25px;
-  left: 30%;
-}
-
-.center {
-  position: absolute;
-  top: 70%;
-  left: 52%;
-  transform: translate(-50%, -50%);
-}
-
+<style>
 .table-wrapper .btn {
   float: right;
 }
