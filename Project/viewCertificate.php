@@ -111,6 +111,7 @@
                             $RESULT = mysqli_query($conn, $SQL);
                             $ROW=mysqli_fetch_assoc($RESULT);
                             $ic = $ROW['ic'];
+                            $username = $ROW['username'];
                             
                             echo '
                             <tr class="text-center">
