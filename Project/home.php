@@ -8,7 +8,6 @@
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
   $loggedin= true;
   $userId = $_SESSION['userId'];
-  $username = $_SESSION['username'];
 }
 if($loggedin){
     

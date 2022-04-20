@@ -21,12 +21,6 @@
   color: black;
 }
 
-.date {
-  position: absolute;
-  bottom: 25px;
-  left: 30%;
-}
-
 .top-left {
   position: absolute;
   top: 8px;
@@ -45,18 +39,45 @@
   right: 16px;
 }
 
-.name {
+.date {
   position: absolute;
-  top: 60%;
-  left: 45%;
+  bottom: 25px;
+  left: 30%;
+}
+
+.center {
+  position: absolute;
+  top: 70%;
+  left: 52%;
   transform: translate(-50%, -50%);
 }
 
-.event {
-  position: absolute;
-  top: 75%;
-  left: 45%;
-  transform: translate(-50%, -50%);
+.table-wrapper .btn {
+  float: right;
+}
+
+.table-wrapper .btn.btn-info {
+  color: #fff;
+  background: #03A9F4;
+}
+.table-wrapper .btn.btn-info:hover {
+  background: #03a3e7;
+}
+.table-title .btn i {
+  float: left;
+  font-size: 21px;
+  margin-right: 5px;
+}
+.table-title .btn span {
+  float: left;
+  margin-top: 2px;
+}
+.table-title {
+  padding: 5px 25px;
+}
+.table-title h2 {
+  margin: 5px 0 0;
+  font-size: 24px;
 }
 </style>
   </head>
@@ -80,13 +101,18 @@
 
     <div class="">
         <div class="table-wrapper" id="empty">
-            
+            <div class="table-title">
+              <div class="row">
+                    <div class="col-sm-8">
+                        <h2><b>Certificate</b></h2>
+                    </div>
                     <div class="col-sm-2">						
                       <a href="#" onclick="window.print()" class="btn btn-info"><i class="material-icons">&#xE24D;</i> <span>Print</span></a>
                     </div>
+              </div>
+            </div>
             
-            
-            <div class="col-md-10">
+            <div class="col-10">
             <table>
                 <tbody>
                     <?php
@@ -114,21 +140,18 @@
                             $username = $ROW['username'];
                             
                             echo '
-                            <tr class="text-center">
-                            <td><br>
-                            <img src="img/certificate.jpg" alt=" " width="80%"/>
-                            <div class="name text-uppercase">
-                              <b>'.$username.'</b>
-                              <b>'.$ic.'</b>
-                            </div>
-
-                            <div class="event text-center">
-                              <p>For his achievements is participating in the <br>2022 ' .$eventName. ' activities </p>
-                            </div>
-
-                            <div class="date text-uppercase">
-                              <b>'.$eventDate.'</b>
-                            </div>
+                            <tr>
+                            <td>
+                                <div class="col-10">
+                                    <div style="width:900px; height:600px; background-image:url(img/cer.jpg)">
+                                    
+                                        <br><br><br><br><br><br><br><br><br><br><br><br><br>  
+                                        <div class="text-center"><b class="text-uppercase text-dark"><br>'.$username.' '.$ic.'</b></div>
+                                        <div class="text-center"><b class="text-center">For his achievements is participating in the <br>2022 ' .$eventName. ' activities </b></div>
+                                        <br><br>
+                                        <div class="col-md-6 offset-md-2"><b class="text-dark text-uppercase">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$eventDate.' </b></div>
+                                    </div>
+                                </div>
                             </td>
                             </tr>
                             ';
