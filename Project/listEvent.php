@@ -18,23 +18,29 @@
 
   <?php require 'includes/nav.php';?>
   <?php include 'includes/_dbconnect.php';?>
+  <?php include 'includes/_loggedin.php';?>
 
 <div class="w">
 <div class="main_content">
         <div class="header"></div>  
         <div class="info">
           
-    
+        <div class="col-sm-8">
+        <h2><b>Event List</b></h2>
+        </div>
+
+
             <!-- Table Panel -->
 			<div class="col-md-10 mb-3">
 				<div class="bg-light">
 					
 						<table class="table table-bordered table-hover mb-0">
-							<thead style="background-color: rgb(202 202 203);">
+							<thead class="bg-warning">
 								<tr>
 									<th class="text-center" style="width:7%;">Id</th>
 									<th class="text-center">Img</th>
-									<th class="text-center" style="width:58%;">Event List</th>
+									<th class="text-center" style="width:50%;">Event</th>
+                  <th class="text-center" style="width:20%;">Date / Time</th>
 									<th class="text-center" style="width:18%;">Action</th>
 								</tr>
 							</thead>
@@ -46,26 +52,46 @@
                                     $eventId = $row['eventId'];
                                     $eventName = $row['eventName'];
                                     $Desc = $row['Desc'];
+                                    $venue = $row['venue'];
+                                    $eventDate = $row['eventDate'];
+                                    $eventTime = $row['eventTime'];
                      
                                     echo '<tr>
-											<td class="text-center" style="background-color: rgb(202 202 203);">' .$eventId. '</td>
+											                      <td class="text-center bg-warning">' .$eventId. '</td>
                                             <td>
-                                                <img src="/Project/img/event-'.$eventId. '.jpg" alt="image for this item" width="200px" height="150px">
+                                                <img src="/Project/img/event-'.$eventId. '.jpg" alt="image for this item" width="200px" height="250px">
                                             </td>
                                             <td>
-                                                <p>Title : <b>' .$eventName. '</b></p>
-                                                <p>Description : <b class="truncate">' .$Desc. '</b></p>
+                                                <p>Event : <b>' .$eventName. '</b></p>
+                                                <p>Description : <br><b class="truncate">' . substr($Desc, 0, 100). '......</b></p>
+                                                <p>Place : <b>' .$venue. '</b></p>
                                                 
                                             </td>
-                                            <td class="text-center">
-                                            <form action="includes/_manageCart.php" method="POST">
+                                            <td>
+                                                <p><b>Date : </b>'.$eventDate.'</p>
+                                                <p><b>Time : </b>'.$eventTime.'</p>
+                                            </td>
+                                            <td class="text-center">';
+                                            if($loggedin){
+                                            $quaSql = "SELECT * FROM `attendent` WHERE eventId = '$eventId' AND `userId`='$userId'";
+                                            $quaresult = mysqli_query($conn, $quaSql);
+                                            $quaExistRows = mysqli_num_rows($quaresult);
+                                            if($quaExistRows == 0) {
+                                            echo '
+                                              <form action="includes/_manageCart.php" method="POST">
 												
-                                            <button class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#viewEvent' .$eventId. '">VIEW</button>
-													
-														<button name="" class="btn btn-sm btn-success" style="margin-left:9px;">JOIN</button>
-														<input type="hidden" name="eventId" value="'.$eventId. '">
-													
-												</form>
+                                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#viewEvent' .$eventId. '">VIEW</button>
+                                                
+														                    <button name="join" class="btn btn-success" style="margin-left:9px;">JOIN</button>
+														                    <input type="hidden" name="eventId" value="'.$eventId. '">';
+                                              }else {
+                                                echo '
+                                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#viewEvent' .$eventId. '">VIEW</button>
+                                                <a href="attendEvent.php"><button class="btn btn-danger" style="margin-left:9px;">JOIN</button></a>';
+                                              }
+                                              }
+                                            echo '
+												                      </form>
                                             </td>
                                         </tr>';
                                 }
@@ -87,6 +113,7 @@
         $eventId = $eventRow['eventId'];
         $eventName = $eventRow['eventName'];
         $Desc = $eventRow['Desc'];
+        $venue = $eventRow['venue'];
 ?>
 
 <!-- Modal -->
@@ -104,9 +131,14 @@
       
         <?php
         echo  '
-            <div class="col-md-8 my-4">
-                <p class="mb-0">' .$Desc .'</p>
-            </div>';
+            <div class="col-md-12 my-4">
+                <p class="mb-0">' .$Desc .'</p><br>
+                <p class="mb-0 text-primary">Place : ' .$venue. '</p>
+            </div>
+            <div class="text-center">
+              <img src="/Project/img/event-'.$eventId. '.jpg" alt="image for this item" width="450px" height="600px">
+            </div>
+            ';
         ?>
         
 		

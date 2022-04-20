@@ -35,11 +35,12 @@
 				<div class="bg-light">
 					
 						<table class="table table-bordered table-hover mb-0">
-							<thead style="background-color: rgb(202 202 203);">
+							<thead class="bg-secondary text-light">
 								<tr>
 									<th class="text-center" style="width:7%;">Id</th>
 									<th class="text-center">Img</th>
-									<th class="text-center" style="width:58%;">Event List</th>
+									<th class="text-center" style="width:50%;">Event List</th>
+                  <th class="text-center" style="width:25%;">Date / Time</th>
 									<th class="text-center" style="width:18%;">Action</th>
 								</tr>
 							</thead>
@@ -51,16 +52,23 @@
                                     $eventId = $row['eventId'];
                                     $eventName = $row['eventName'];
                                     $Desc = $row['Desc'];
+                                    $venue = $row['venue'];
+                                    $eventDate = $row['eventDate'];
+                                    $eventTime = $row['eventTime'];
                      
                                     echo '<tr>
-											<td class="text-center" style="background-color: rgb(202 202 203);">' .$eventId. '</td>
+											                      <td class="text-center bg-secondary text-light">' .$eventId. '</td>
                                             <td>
-                                                <img src="/Project/img/event-'.$eventId. '.jpg" alt="image for this item" width="200px" height="150px">
+                                                <img src="/Project/img/event-'.$eventId. '.jpg" alt="image for this item" width="200px" height="250px">
                                             </td>
                                             <td>
-                                                <p>Title : <b>' .$eventName. '</b></p>
-                                                <p>Description : <b class="truncate">' .$Desc. '</b></p>
-                                                
+                                                <p><b>Event : </b>' .$eventName. '</p>
+                                                <p><b>Description : <br></b>' .$Desc. '</p>
+                                                <p><b>Place : </b>' .$venue. '</p>
+                                            </td>
+                                            <td>
+                                                <p><b>Date : </b>'.$eventDate.'</p>
+                                                <p><b>Time : </b>'.$eventTime.'</p>
                                             </td>
                                             <td class="text-center">
                                                 <form action="includes/_eventManage.php" method="POST">
@@ -97,12 +105,24 @@
 
 			<form action="includes/_eventManage.php" method="post" enctype="multipart/form-data">
 							<div class="form-group">
-								<label class="control-label">Title: </label>
+								<label class="control-label">Event: </label>
 								<input type="text" class="form-control" name="name" required>
 							</div>
 							<div class="form-group">
 								<label class="control-label">Description: </label>
 								<textarea cols="30" rows="3" class="form-control" name="description" required></textarea>
+							</div>
+              <div class="form-group">
+								<label class="control-label">Place: </label>
+								<input type="text" class="form-control" name="venue" required>
+							</div>
+              <div class="form-group">
+								<label class="control-label">Date: </label>
+								<input type="text" class="form-control" name="date" required>
+							</div>
+              <div class="form-group">
+								<label class="control-label">Time: </label>
+								<input type="text" class="form-control" name="time" required>
 							</div>
                             
 							<div class="form-group">
@@ -137,6 +157,9 @@
         $eventId = $eventRow['eventId'];
         $eventName = $eventRow['eventName'];
         $Desc = $eventRow['Desc'];
+        $venue = $eventRow['venue'];
+        $eventDate = $eventRow['eventDate'];
+        $eventTime = $eventRow['eventTime'];
 ?>
 
 <!-- Modal -->
@@ -160,19 +183,32 @@
 					<button type="submit" class="btn btn-success my-1" name="updateEventPhoto">Update Img</button>
 				</div>
 				<div class="form-group col-md-4">
-					<img src="/Project/img/event-<?php echo $eventId; ?>.jpg" id="eventPhoto" name="eventPhoto" alt="event image" width="150" height="100">
+					<img src="/Project/img/event-<?php echo $eventId; ?>.jpg" id="eventPhoto" name="eventPhoto" alt="event image" width="100" height="140">
 				</div>
 			</div>
 		</form>
 		<form action="includes/_eventManage.php" method="post">
             <div class="text-left my-2">
-                <b><label for="name">Title</label></b>
+                <b><label for="name">Event</label></b>
                 <input class="form-control" id="name" name="name" value="<?php echo $eventName; ?>" type="text" required>
             </div>
 			
             <div class="text-left my-2">
                 <b><label for="Desc">Description</label></b>
                 <textarea class="form-control" id="Desc" name="Desc" rows="2" required minlength="5"><?php echo $Desc; ?></textarea>
+            </div>
+
+            <div class="text-left my-2">
+                <b><label for="venue">Place</label></b>
+                <input class="form-control" id="venue" name="venue" value="<?php echo $venue; ?>" type="text" required>
+            </div>
+            <div class="text-left my-2">
+                <b><label for="date">Date</label></b>
+                <input class="form-control" id="date" name="date" value="<?php echo $eventDate; ?>" type="text" required>
+            </div>
+            <div class="text-left my-2">
+                <b><label for="time">Time</label></b>
+                <input class="form-control" id="time" name="time" value="<?php echo $eventTime; ?>" type="text" required>
             </div>
             <input type="hidden" id="eventId" name="eventId" value="<?php echo $eventId; ?>">
             <button type="submit" class="btn btn-success" name="updateEvent">Update</button>

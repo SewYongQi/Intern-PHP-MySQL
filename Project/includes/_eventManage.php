@@ -6,8 +6,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['createEvent'])) {
         $name = $_POST["name"];
         $description = $_POST["description"];
+        $venue = $_POST["venue"];
+        $date = $_POST["date"];
+        $time = $_POST["time"];
 
-        $sql = "INSERT INTO `event` (`eventName`, `Desc`, `eventPubDate`) VALUES ('$name', '$description', current_timestamp())";   
+        $sql = "INSERT INTO `event` (`eventName`, `Desc`, `venue`, `eventDate`, `eventTime`, `eventPubDate`) VALUES ('$name', '$description', '$venue', '$date', '$time', current_timestamp())";   
         $result = mysqli_query($conn, $sql);
         $eventId = $conn->insert_id;
         if ($result){
@@ -66,8 +69,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $eventId = $_POST["eventId"];
         $eventName = $_POST["name"];
         $Desc = $_POST["Desc"];
+        $venue = $_POST["venue"];
+        $eventDate = $_POST["date"];
+        $eventTime = $_POST["time"];
 
-        $sql = "UPDATE `event` SET `eventName`='$eventName',  `Desc`='$Desc' WHERE `eventId`='$eventId'";   
+        $sql = "UPDATE `event` SET `eventName`='$eventName',  `Desc`='$Desc', `venue`='$venue', `eventDate`='$eventDate', `eventTime`='$eventTime' WHERE `eventId`='$eventId'";   
         $result = mysqli_query($conn, $sql);
         if ($result){
             echo "<script>alert('update');

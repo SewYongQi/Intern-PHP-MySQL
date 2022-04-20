@@ -29,8 +29,8 @@
 
         <div class="row jumbotron bg-dark col-10">
         <?php
-            $foodId = $_GET['foodid'];
-            $sql = "SELECT * FROM `food` WHERE foodId = $foodId";
+            $eventId = $_GET['eventid'];
+            $sql = "SELECT * FROM `event` WHERE eventId = $eventId";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
             $eventName = $row['eventName'];
@@ -41,7 +41,7 @@
         <script> document.getElementById("title").innerHTML = "<?php echo $eventName; ?>"; </script> 
         <?php
         echo  '<div class="col-md-4"><br>
-                <img src="img/event-'.$foodId. '.jpg" width="250px" height="270px">
+                <img src="img/event-'.$eventId. '.jpg" width="250px" height="270px">
             </div>
             <div class="col-md-8 my-4">
                 <h3>' . $eventName . '</h3>

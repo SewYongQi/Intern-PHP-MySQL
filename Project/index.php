@@ -1,15 +1,6 @@
 <?php 
-    session_start();
-    if(isset($_SESSION['adminloggedin']) && $_SESSION['adminloggedin']==true){
-        $adminloggedin= true;
-        $userId = $_SESSION['adminuserId'];
-    }
-    else{
-        $adminloggedin = false;
-        $userId = 0;
-    }
-
-    if($adminloggedin) {
+include 'includes/_loggedin.php';
+    if($loggedin) {
 ?>
 <!doctype html>
 <html lang="en">
