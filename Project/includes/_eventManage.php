@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $check = getimagesize($_FILES["image"]["tmp_name"]);
             if($check !== false) {
                 
-                $newName = 'event-'.$eventId;
+                $newName = 'events-'.$eventId;
                 $newfilename=$newName .".jpg";
 
                 $uploaddir = $_SERVER['DOCUMENT_ROOT'].'/Project/img/';
@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $eventId = $_POST["eventId"];
         $sql = "DELETE FROM `event` WHERE `eventId`='$eventId'";   
         $result = mysqli_query($conn, $sql);
-        $filename = $_SERVER['DOCUMENT_ROOT']."/Project/img/event-".$eventId.".jpg";
+        $filename = $_SERVER['DOCUMENT_ROOT']."/Project/img/events-".$eventId.".jpg";
         if ($result){
             if (file_exists($filename)) {
                 unlink($filename);
@@ -90,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $eventId = $_POST["eventId"];
         $check = getimagesize($_FILES["eventimage"]["tmp_name"]);
         if($check !== false) {
-            $newName = 'event-'.$eventId;
+            $newName = 'events-'.$eventId;
             $newfilename=$newName .".jpg";
 
             $uploaddir = $_SERVER['DOCUMENT_ROOT'].'/Project/img/';

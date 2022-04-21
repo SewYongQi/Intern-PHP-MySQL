@@ -59,7 +59,7 @@
                                     echo '<tr>
 											                      <td class="text-center bg-warning">' .$eventId. '</td>
                                             <td>
-                                                <img src="/Project/img/event-'.$eventId. '.jpg" alt="image for this item" width="200px" height="250px">
+                                                <img src="/Project/img/events-'.$eventId. '.jpg" alt="image for this item" width="200px" height="250px">
                                             </td>
                                             <td>
                                                 <p>Event : <b>' .$eventName. '</b></p>
@@ -136,7 +136,7 @@
                 <p class="mb-0 text-primary">Place : ' .$venue. '</p>
             </div>
             <div class="text-center">
-              <img src="/Project/img/event-'.$eventId. '.jpg" alt="image for this item" width="450px" height="600px">
+              <img src="/Project/img/events-'.$eventId. '.jpg" alt="image for this item" width="450px" height="600px">
             </div>
             ';
         ?>

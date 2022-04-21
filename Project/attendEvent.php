@@ -105,7 +105,7 @@
                                     <td class="text-center bg-success text-light">' . $counter . '</td>
                                     <td class="text-center">' .$eventId. '</td>
                                     <td>
-                                        <img src="/Project/img/event-'.$eventId. '.jpg" alt="image for this item" width="200px" height="250px">
+                                        <img src="/Project/img/events-'.$eventId. '.jpg" alt="image for this item" width="200px" height="250px">
                                     </td>
                                     <td>
                                         <p><b>Event : </b>' .$eventName. '</p>

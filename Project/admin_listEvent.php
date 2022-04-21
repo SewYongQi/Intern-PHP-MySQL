@@ -59,7 +59,7 @@
                                     echo '<tr>
 											                      <td class="text-center bg-secondary text-light">' .$eventId. '</td>
                                             <td>
-                                                <img src="/Project/img/event-'.$eventId. '.jpg" alt="image for this item" width="200px" height="250px">
+                                                <img src="/Project/img/events-'.$eventId. '.jpg" alt="image for this item" width="200px" height="250px">
                                             </td>
                                             <td>
                                                 <p><b>Event : </b>' .$eventName. '</p>
@@ -183,7 +183,7 @@
 					<button type="submit" class="btn btn-success my-1" name="updateEventPhoto">Update Img</button>
 				</div>
 				<div class="form-group col-md-4">
-					<img src="/Project/img/event-<?php echo $eventId; ?>.jpg" id="eventPhoto" name="eventPhoto" alt="event image" width="100" height="140">
+					<img src="/Project/img/events-<?php echo $eventId; ?>.jpg" id="eventPhoto" name="eventPhoto" alt="event image" width="100" height="140">
 				</div>
 			</div>
 		</form>
