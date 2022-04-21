@@ -56,6 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if(isset($_POST['editUser'])) {
         $id = $_POST["userId"];
+        $username = $_POST['username'];
         $userid = $_POST['userid'];
         $ic = $_POST["ic"];
         $email = $_POST["email"];
@@ -63,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $phone = $_POST["phone"];
         $userType = $_POST["userType"];
 
-        $sql = "UPDATE `users` SET `userid`='$userid', `ic`='$ic', `email`='$email', `address`='$address', `phone`='$phone', `userType`='$userType' WHERE `id`='$id'";   
+        $sql = "UPDATE `users` SET `userid`='$userid', `username`='$username', `ic`='$ic', `email`='$email', `address`='$address', `phone`='$phone', `userType`='$userType' WHERE `id`='$id'";   
         $result = mysqli_query($conn, $sql);
         if ($result){
             echo "<script>alert('update successfully');
@@ -77,46 +78,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     
-    if(isset($_POST['updateProfilePhoto'])) {
-        $id = $_POST["userId"];
-        $check = getimagesize($_FILES["userimage"]["tmp_name"]);
-        if($check !== false) {
-            $newfilename = "person-".$id.".jpg";
-
-            $uploaddir = $_SERVER['DOCUMENT_ROOT'].'/Project/img/';
-            $uploadfile = $uploaddir . $newfilename;
-
-            if (move_uploaded_file($_FILES['userimage']['tmp_name'], $uploadfile)) {
-                echo "<script>alert('success');
-                        window.location=document.referrer;
-                    </script>";
-            } else {
-                echo "<script>alert('failed');
-                        window.location=document.referrer;
-                    </script>";
-            }
-        }
-        else{
-            echo '<script>alert("Please select an image file to upload.");
-            window.location=document.referrer;
-                </script>';
-        }
-    }
     
-    if(isset($_POST['removeProfilePhoto'])) {
-        $id = $_POST["userId"];
-        $filename = $_SERVER['DOCUMENT_ROOT']."/Project/img/person-".$id.".jpg";
-        if (file_exists($filename)) {
-            unlink($filename);
-            echo "<script>alert('Removed');
-                window.location=document.referrer;
-            </script>";
-        }
-        else {
-            echo "<script>alert('no photo available.');
-                window.location=document.referrer;
-            </script>";
-        }
-    }
 }
 ?>
