@@ -39,7 +39,7 @@
 								<tr>
 									<th class="text-center" style="width:7%;">Id</th>
 									<th class="text-center">Img</th>
-									<th class="text-center" style="width:50%;">Event List</th>
+									<th class="text-center" style="width:50%;">Event</th>
                   <th class="text-center" style="width:25%;">Date / Time</th>
 									<th class="text-center" style="width:18%;">Action</th>
 								</tr>
@@ -72,10 +72,10 @@
                                             </td>
                                             <td class="text-center">
                                                 <form action="includes/_eventManage.php" method="POST">
-													<button class="btn btn-sm btn-success" type="button" data-toggle="modal" data-target="#updateEvent' .$eventId. '">Edit</button>							
-													<button name="removeEvent" class="btn btn-sm btn-danger" style="margin-left:9px;">Delete</button>
-													<input type="hidden" name="eventId" value="'.$eventId. '">
-												</form>
+                                                  <button class="btn btn-sm btn-success" type="button" data-toggle="modal" data-target="#updateEvent' .$eventId. '">Edit</button>							
+                                                  <button name="removeEvent" class="btn btn-sm btn-danger" style="margin-left:9px;">Delete</button>
+                                                  <input type="hidden" name="eventId" value="'.$eventId. '">
+                                                </form>
 												
                                             </td>
                                         </tr>';

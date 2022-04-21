@@ -74,11 +74,11 @@
         <div class="row">
                     
                     <div class="col-10"> 
-                    <button class="btn btn-warning float-right" data-toggle="modal" data-target="#editUser"> Edit User</button>
-                    <table><br><br>
+                    <button class="btn btn-warning float-right" data-toggle="modal" data-target="#editUser"> Edit </button>
+                    <table class="card"><br><br>
                         <tr>
-                            <td><h5 class="text-dark fw-bold">Name : </h5></td>
-                            <td><h5> <?php echo $username ?></h5></td>
+                            <td><br><h5 class="text-dark fw-bold">Name : </h5></td>
+                            <td><br><h5> <?php echo $username ?></h5></td>
                         </tr>
                         
                         <tr>
@@ -88,6 +88,17 @@
                         
                         
                     </table></div>
+
+                    <div class="col-10">
+                    <table class="card">
+                      <tr>
+                        <td><br>
+                        <h5 class="text-dark fw-bold">User Account</h5>
+                        <a href="userManager.php" class="btn btn-primary">Go To User Page</a>
+                        </td><br>
+                      </tr>
+                    </table>
+                    </div>
                     
                
             </div>

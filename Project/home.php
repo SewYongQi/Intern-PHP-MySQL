@@ -12,7 +12,8 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
 if($loggedin){
     
 ?>
-        <div class="container">
+        <div class="col-10">
+            <div class="card">
         <?php 
             $sql = "SELECT * FROM users WHERE id='$userId'"; 
             $result = mysqli_query($conn, $sql);
@@ -27,7 +28,7 @@ if($loggedin){
         ?>
         <div class="row">
                     
-                    <div class="col-10"> 
+                    <div class="container col-10"> <br>
                     <button class="btn btn-danger float-right" data-toggle="modal" data-target="#editUser"> Edit User</button>
                     <table><br><br>
                     <tbody>

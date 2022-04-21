@@ -16,10 +16,15 @@
 </head>
 <body class="bg-secondary">
     <?php include 'includes/_dbconnect.php';?>
-
+    <?php include 'includes/admin_nav.php';?>
     <?php include 'includes/_loggedin.php';?>
     
     
+    <div class="w">
+    <div class="main_content">
+        <div class="header"></div>  
+        <div class="info">
+
     <?php 
     if($loggedin){
     ?>
@@ -28,27 +33,27 @@
 <div class="container-fluid" style="margin-top:80px">
 	
 	<div class="row">
-        <div class="col-lg-12">
-            <button class="btn btn-dark float-right" data-toggle="modal" data-target="#newUser"><i class="fa fa-plus"></i> New user</button>
+        <div class="col-lg-10">
+            <button class="btn btn-light float-left border border-2 border-white"><a href="admin_index.php" class="text-dark fw-bold"> BACK</a></button>
+            <button class="btn btn-dark float-right" data-toggle="modal" data-target="#newUser"><i class="fa fa-plus"></i> New User</button>
         </div>
 	</div>
 	    <br>
 	<div class="row">
-		<div class="col-lg-12">
+		<div class="col-lg-10">
 			
 				<table class="table table-bordered table-hover mb-0 text-center">
-                    <thead style="background-color: rgb(202 202 203);">
+                    <thead class="bg-info">
                         <tr>
                             <th style="width:1%;">User Id</th>
-                            <th style="width:5%">Photo</th>
                             <th style="width:2%;">Username</th>
-                            <th style="width:2%;">User ID</th>
+                            <th style="width:1%;">User ID</th>
                             <th style="width:10%;">IC NO.</th>
                             <th style="width:3%;">Email</th>
                             <th style="width:15%;">Address</th>
                             <th style="width:3%;">Phone No.</th>
                             <th style="width:3%;">Type</th>
-                            <th style="width:10%;">Action</th>
+                            <th style="width:15%;">Action</th>
                         </tr>
                     </thead>
                     <tbody class="bg-light">
@@ -71,8 +76,7 @@
                                     $userType = "Admin";
 
                                 echo '<tr>
-                                    <td>' .$Id. '</td>
-                                    <td><img src="/Project/img/person-' .$Id. '.jpg" alt="image for this user" onError="this.src =\'/OnlineFoodOrdering/images/profile.jpg\'" width="100px" height="100px"></td>
+                                    <td style="height:100px">' .$Id. '</td>
                                     <td>' .$username. '</td>
                                     <td>' .$userid. '</td>
                                     <td>' .$ic. '</td>
@@ -124,16 +128,17 @@
                   <b><label for="username">Username:</label></b>
                   <input class="form-control" id="username" name="username" placeholder="Choose a unique Username" type="text" required minlength="3" maxlength="11">
               </div>
-              <div class="form-group ">
+              <div class="row">
+              <div class="form-group col-6">
                   <b><label for="userid">User ID:</label></b>
-                  <input type="text" class="form-control" id="userid" name="userid" placeholder="User ID" required>
+                  <input type="text" class="form-control" id="userid" name="userid" placeholder="Enter Your User ID" required>
                 </div>
                 
-                <div class="form-group ">
+                <div class="form-group col-6">
                   <b><label for="ic">IC NO.:</label></b>
-                  <input type="text" class="form-control" id="ic" name="ic" placeholder="IC NO." required>
+                  <input type="text" class="form-control" id="ic" name="ic" placeholder="Enter Your IC Number" required>
                 </div>
-              
+                </div>
               <div class="form-group">
                   <b><label for="email">Email:</label></b>
                   <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
@@ -202,39 +207,21 @@
       </div>
         <div class="modal-body">
             
-            <div class="text-left my-2 row" style="border-bottom: 2px solid #dee2e6;">
-                <div class="form-group col-md-8">
-                    <form action="includes/_userManage.php" method="post" enctype="multipart/form-data">
-                        <b><label for="image">Profile Picture</label></b>
-                        <input type="file" name="userimage" id="userimage" accept=".jpg" class="form-control" required style="border:none;">
-                        <small id="Info" class="form-text text-muted mx-3">Please .jpg file upload.</small>
-                        <input type="hidden" id="userId" name="userId" value="<?php echo $Id; ?>">
-                        <button type="submit" class="btn btn-success mt-3" name="updateProfilePhoto">Update Img</button>
-                    </form>         
-                </div>
-                <div class="form-group col-md-4">
-                    <img src="/Project/img/person-<?php echo $Id; ?>.jpg" alt="Profile Photo" width="100" height="100" onError="this.src ='/OnlineFoodOrdering/images/profile.jpg'">
-                    <form action="includes/_userManage.php" method="post">
-                        <input type="hidden" id="userId" name="userId" value="<?php echo $Id; ?>">
-                        <button type="submit" class="btn btn-success mt-2" name="removeProfilePhoto">Remove Img</button>
-                    </form>
-                </div>
-            </div>
-            
             <form action="includes/_userManage.php" method="post">
                 <div class="form-group">
                     <b><label for="username">Username</label></b>
                     <input class="form-control" id="username" name="username" value="<?php echo $name; ?>" type="text" required>
                 </div>
-                <div class="form-group">
+                <div class="row">
+                <div class="form-group col-6">
                     <b><label for="userid">User ID:</label></b>
                     <input type="text" class="form-control" id="userid" name="userid" value="<?php echo $userid; ?>" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-6">
                     <b><label for="ic">IC NO.:</label></b>
                     <input type="text" class="form-control" id="ic" name="ic" value="<?php echo $ic; ?>" required>
                 </div>
-          
+                </div>    
                 <div class="form-group">
                     <b><label for="email">Email:</label></b>
                     <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" required>
@@ -289,6 +276,10 @@
     }
     ?>
 
+      </div>
+    </div>
+</div>
+    
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

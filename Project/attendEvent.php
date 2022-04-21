@@ -101,7 +101,7 @@
                             $eventTime = $myrow['eventTime'];
                             $counter++;
                             
-                            echo '<tr>
+                            echo '<tr class="bg-light">
                                     <td class="text-center bg-success text-light">' . $counter . '</td>
                                     <td class="text-center">' .$eventId. '</td>
                                     <td>
